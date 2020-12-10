@@ -15,3 +15,15 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+// External imports
+import "bootstrap";
+
+import {initEventFormSwitch} from "../components/init_event_form_switch.js";
+import {initFlatpickr} from "../plugins/flatpickr";
+
+document.addEventListener('turbolinks:load', () => {
+  initEventFormSwitch();
+  initFlatpickr();
+});
+

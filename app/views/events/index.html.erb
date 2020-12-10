@@ -1,0 +1,28 @@
+<h2><%= Date.today.strftime("%A%d%B") %></h2>
+
+<div class="d-flex flex-column">
+  <p class="m-2">Toute la journée :</p>
+  <% @all_day_events.order(:start_date).each do |event| %>
+    <div class="d-flex alert-primary m-2 pt-3 border border-primary">
+      <p><%= event.name %></p>
+    </div>
+  <% end %>
+  <p class="m-2">À venir aujourd'hui :</p>
+  <% @only_todays_events.each do |event| %>
+    <div class="d-flex alert-warning m-2 pt-3 border border-warning">
+      <% if event.start_date <= Date.today.midnight %>
+        <p>00H00</p>&nbsp;
+        <p> | <%= event.end_date.strftime("%H") %>H<%= event.end_date.strftime("%M") %></p>&nbsp;
+      <% elsif event.end_date >= Date.tomorrow.midnight %>
+        <p><%= event.start_date.strftime("%H") %>H<%= event.start_date.strftime("%M") %></p>&nbsp;
+        <p> | 00H00</p>&nbsp;
+      <% else %>
+        <p><%= event.start_date.strftime("%H") %>H<%= event.start_date.strftime("%M") %></p>&nbsp;
+        <p> | <%= event.end_date.strftime("%H") %>H<%= event.end_date.strftime("%M") %></p>&nbsp;
+      <% end %>
+      <p><%= event.name %></p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Créer un nouvel evènement", new_event_path %>

@@ -1,0 +1,45 @@
+#new-event-form {
+  width: 100%;
+  text-align: left;
+  margin: 0px 0px 15px;
+}
+
+.form-group.string.optional {
+  flex-grow: 1;
+  margin: 0px;
+}
+
+.top-bordered {
+  border-top: $border-form-input;
+}
+
+.bordered {
+  border-top: $border-form-input;
+  border-bottom: $border-form-input;
+}
+
+.label-datepicker {
+  width: 40px;
+}
+
+.form-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  margin: 0px 2%;
+}
+
+.form-input-group {
+  background: white;
+  margin: 15px 2%;
+  border: $border-form-input;
+  border-radius: 8px;
+  box-shadow: $grey-shadow;
+}
+
+.form-group.string.required,
+.form-group.text.required {
+  margin: 0px;
+  flex-grow: 1;
+}

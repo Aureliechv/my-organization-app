@@ -1,0 +1,7 @@
+<h2><%= Date.today.strftime("%A%d%B") %></h2>
+<% current_user.events.each do |event| %>
+  <h3><%= event.name %></h3>
+  <p><%= event.description %></p>
+<% end %>
+
+<%= link_to "Créer un nouvel evènement", new_event_path %>
